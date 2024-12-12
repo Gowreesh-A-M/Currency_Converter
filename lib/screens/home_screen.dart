@@ -11,12 +11,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final ApiManager _apiManager = ApiManager();
 
-  Map<String, dynamic>? _exchangeRates; // Stores fetched rates
-  String _fromCurrency = 'USD'; // Default base currency
-  String _toCurrency = 'INR'; // Default target currency
+  Map<String, dynamic>? _exchangeRates; 
+  String _fromCurrency = 'USD'; 
+  String _toCurrency = 'INR'; 
   String _conversionResult = '';
   TextEditingController _amountController = TextEditingController();
-  DateTime? _lastUpdated; // Variable to store the last updated time
+  DateTime? _lastUpdated; 
 
   @override
   void initState() {
@@ -36,11 +36,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
       setState(() {
         _exchangeRates = data['rates'];
-        // Parse the provided 'time_last_updated' from the API response
         _lastUpdated = DateTime.fromMillisecondsSinceEpoch(
           data['time_last_updated'] * 1000,
           isUtc: true,
-        ).toLocal(); // Convert to local time if needed
+        ); 
       });
     } catch (e) {
       setState(() {
@@ -134,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
-            // Display the last updated time
+            
             Text(
               _lastUpdated == null
                   ? 'Fetching rates...'

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiManager {
-  // Base URL for the API (make this public if needed elsewhere)
+  // Base URL for the API
   static const String baseUrl = 'https://api.exchangerate-api.com/v4/latest/';
 
   // Fetch exchange rates for a given base currency
