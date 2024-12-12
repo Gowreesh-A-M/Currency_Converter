@@ -15,7 +15,7 @@ class CurrencyConverterApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(), // Home screen as the default page
+      home: buildHomeScreen(), // Home screen as the default page
     );
   }
 }

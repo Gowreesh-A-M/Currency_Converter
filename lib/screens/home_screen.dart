@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import '../api/api_manager.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class _HomeScreen extends StatefulWidget {
+  const _HomeScreen();
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<_HomeScreen> {
   final ApiManager _apiManager = ApiManager();
 
   Map<String, dynamic>? _exchangeRates; 
   String _fromCurrency = 'USD'; 
   String _toCurrency = 'INR'; 
   String _conversionResult = '';
-  TextEditingController _amountController = TextEditingController();
+  final TextEditingController _amountController = TextEditingController();
   DateTime? _lastUpdated; 
 
   @override
@@ -145,4 +145,9 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+}
+
+// Public factory function
+Widget buildHomeScreen() {
+  return const _HomeScreen(); // Provides controlled access
 }
