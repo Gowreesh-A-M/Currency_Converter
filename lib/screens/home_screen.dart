@@ -24,13 +24,23 @@ class _HomeScreenState extends State<HomeScreen> {
     _fetchRates();
   }
 
+  @override
+  void dispose() {
+    _amountController.dispose();
+    super.dispose();
+  }
+
   void _fetchRates() async {
     try {
       final data = await _apiManager.fetchExchangeRates(_fromCurrency);
-      
+
       setState(() {
         _exchangeRates = data['rates'];
-        _lastUpdated = DateTime.now(); // Set the last updated time
+        // Parse the provided 'time_last_updated' from the API response
+        _lastUpdated = DateTime.fromMillisecondsSinceEpoch(
+          data['time_last_updated'] * 1000,
+          isUtc: true,
+        ).toLocal(); // Convert to local time if needed
       });
     } catch (e) {
       setState(() {
