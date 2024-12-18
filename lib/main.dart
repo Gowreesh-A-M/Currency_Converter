@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart'; 
+import 'screens/home_screen.dart';
 
 void main() {
   runApp(const CurrencyConverterApp());
@@ -11,7 +11,7 @@ class CurrencyConverterApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Currency Converter',
+      title: 'Currex',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
